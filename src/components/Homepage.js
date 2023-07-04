@@ -1,16 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCryptoList } from '../redux/cryptoSlice';
+import Filter from './Filter';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const cryptoList = useSelector((state) => state.crypto.cryptoList);
   const status = useSelector((state) => state.crypto.status);
   const error = useSelector((state) => state.crypto.error);
+  const [filterText, setFilterText] = useState('');
 
   useEffect(() => {
     dispatch(fetchCryptoList());
   }, [dispatch]);
+
+  const handleFilterChange = (text) => {
+    setFilterText(text);
+  };
 
   if (status === 'loading') {
     return <div>Loading...</div>;
@@ -20,16 +26,21 @@ const HomePage = () => {
     return (
       <div>
         Error:
+        {' '}
         {error}
       </div>
     );
   }
 
+  const filteredCryptoList = cryptoList.filter((crypto) => crypto.name_full.toLowerCase()
+    .includes(filterText.toLowerCase()));
+
   return (
     <div className="crypto-container">
       <h2>List of available cryptocurrencies:</h2>
+      <Filter filterHandler={handleFilterChange} />
       <ul className="crypto-list">
-        {cryptoList.map((crypto) => (
+        {filteredCryptoList.map((crypto) => (
           <li className="crypto-item" key={crypto.symbol}>
             <img src={`https://assets.coinlayer.com/icons/${crypto.symbol}.png`} alt={`${crypto.name_full} icon`} />
             <strong>{crypto.name_full}</strong>
