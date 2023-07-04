@@ -1,26 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCryptoList } from '../redux/cryptoSlice';
 
 const HomePage = () => {
-  const [cryptoList, setCryptoList] = useState([]);
+  const dispatch = useDispatch();
+  const cryptoList = useSelector((state) => state.crypto.cryptoList);
+  const status = useSelector((state) => state.crypto.status);
+  const error = useSelector((state) => state.crypto.error);
 
   useEffect(() => {
-    const fetchCryptoList = async () => {
-      try {
-        const response = await axios.get('http://api.coinlayer.com/api/list', {
-          params: {
-            access_key: '0df39f4329d575cc6b8614c2cc460032',
-          },
-        });
-        const cryptoArray = Object.values(response.data.crypto);
-        setCryptoList(cryptoArray);
-      } catch (error) {
-        // console.error('Error fetching crypto list: ', error);
-      }
-    };
+    dispatch(fetchCryptoList());
+  }, [dispatch]);
 
-    fetchCryptoList();
-  }, []);
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  if (status === 'failed') {
+    return (
+      <div>
+        Error:
+        {error}
+      </div>
+    );
+  }
 
   return (
     <div className="crypto-container">

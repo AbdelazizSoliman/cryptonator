@@ -1,16 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import Homepage from './components/Homepage';
+import store from './redux/store';
 
 import './App.css';
 
 const App = () => (
-  <div className="App">
-    <Router>
-      <Homepage />
-      <Routes />
-    </Router>
-  </div>
+  <Provider store={store}>
+    <div className="App">
+      <Router>
+        <Homepage />
+      </Router>
+    </div>
+  </Provider>
 );
 
 export default App;
