@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { IoArrowForwardCircleOutline } from 'react-icons/io5';
 import { fetchCryptoList } from '../redux/cryptoSlice';
 import Filter from './Filter';
@@ -43,7 +44,7 @@ const HomePage = () => {
       <ul className="crypto-list">
         {filteredCryptoList.map((crypto) => (
           <li className="crypto-item" key={crypto.symbol}>
-            <span><IoArrowForwardCircleOutline /></span>
+            <Link to={`/crypto/${crypto.symbol}`}><IoArrowForwardCircleOutline /></Link>
             <img src={`https://assets.coinlayer.com/icons/${crypto.symbol}.png`} className="crypo-img" alt={`${crypto.name_full} icon`} />
             <strong>{crypto.name_full}</strong>
             {' '}
