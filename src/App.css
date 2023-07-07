@@ -96,7 +96,6 @@ span {
 
 /* apply the styling only on mobile devices */
 @media only screen and (max-width: 767px) {
-
   .crypto-container {
     margin-left: 0; /* remove margin on left */
   }
@@ -111,7 +110,6 @@ span {
     display: block; /* make it a block element to take full width */
     text-align: center; /* center the text */
   }
-
 }
 
 /* apply the styling on all devices */
@@ -128,9 +126,11 @@ span {
   float: left;
   box-sizing: border-box;
   padding: 0.25rem;
+
   /* margin: 0.5rem; */
   text-align: center;
   border: 1px solid #ccc;
+
   /* background-color: rgba(131, 124, 235, 0.562); */
   display: grid;
 }
