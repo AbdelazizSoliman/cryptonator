@@ -6,18 +6,10 @@ import { fetchCryptoList } from '../redux/cryptoSlice';
 const CryptoDetails = () => {
   const { cryptoSymbol } = useParams();
   const dispatch = useDispatch();
-  //   const crypto = useSelector((state) => state.crypto.selectedCrypto);
   const cryptoList = useSelector((state) => state.crypto.cryptoList);
   const status = useSelector((state) => state.crypto.status);
   const error = useSelector((state) => state.crypto.error);
 
-  //   React.useEffect(() => {
-  //     // dispatch(fetchCryptobysymbol(cryptoSymbol));
-
-  //     return () => {
-  //       dispatch(removeSelectedCrypto());
-  //     };
-  //   }, [cryptoSymbol, dispatch]);
   useEffect(() => {
     dispatch(fetchCryptoList());
   }, [dispatch]);
