@@ -11,17 +11,17 @@ export const fetchCryptoList = createAsyncThunk('crypto/fetchCryptoList', async 
   return cryptoArray;
 });
 
-export const fetchCryptobysymbol = createAsyncThunk(
-  'crypto/fetchCryptobysymbol',
-  async (cryptoSymbol) => {
-    const response = await axios.get(`https://api.coinlayer.com/${cryptoSymbol}`, {
-      params: {
-        access_key: '0df39f4329d575cc6b8614c2cc460032',
-      },
-    });
-    return response.data;
-  },
-);
+// export const fetchCryptobysymbol = createAsyncThunk(
+//   'crypto/fetchCryptobysymbol',
+//   async (cryptoSymbol) => {
+//     const response = await axios.get(`https://api.coinlayer.com/${cryptoSymbol}`, {
+//       params: {
+//         access_key: '0df39f4329d575cc6b8614c2cc460032',
+//       },
+//     });
+//     return response.data;
+//   },
+// );
 
 const initialState = {
   cryptoList: [],
@@ -50,18 +50,18 @@ export const cryptoSlice = createSlice({
       .addCase(fetchCryptoList.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
-      })
-      .addCase(fetchCryptobysymbol.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(fetchCryptobysymbol.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.selectedCrypto = action.payload;
-      })
-      .addCase(fetchCryptobysymbol.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message;
       });
+    // .addCase(fetchCryptobysymbol.pending, (state) => {
+    //   state.status = 'loading';
+    // })
+    // .addCase(fetchCryptobysymbol.fulfilled, (state, action) => {
+    //   state.status = 'succeeded';
+    //   state.selectedCrypto = action.payload;
+    // })
+    // .addCase(fetchCryptobysymbol.rejected, (state, action) => {
+    //   state.status = 'failed';
+    //   state.error = action.error.message;
+    // });
   },
 });
 

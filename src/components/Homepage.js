@@ -46,7 +46,7 @@ const HomePage = () => {
           <li className="crypto-item" key={crypto.symbol}>
             <Link to={`/crypto/${crypto.symbol}`}><IoArrowForwardCircleOutline /></Link>
             <img src={`https://assets.coinlayer.com/icons/${crypto.symbol}.png`} className="crypo-img" alt={`${crypto.name_full} icon`} />
-            <strong>{crypto.name_full}</strong>
+            {/* <strong>{crypto.name_full}</strong>
             {' '}
             (
             {crypto.symbol}
@@ -54,7 +54,7 @@ const HomePage = () => {
             <br />
             Max supply:
             {' '}
-            {crypto.max_supply}
+            {crypto.max_supply} */}
           </li>
         ))}
       </ul>
