@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage component matches snapshot 1`] = `
+<div
+  className="crypto-container"
+>
+  <h2>
+    List of available cryptocurrencies:
+  </h2>
+  <div>
+    <span>
+      Filter by name:
+    </span>
+    <input
+      id="filter-input"
+      onChange={[Function]}
+      type="text"
+    />
+  </div>
+  <ul
+    className="crypto-list"
+  />
+</div>
+`;
