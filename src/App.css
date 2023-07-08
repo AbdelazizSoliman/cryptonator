@@ -80,10 +80,6 @@ a:hover {
   margin: 0 auto;
 }
 
-.icon {
-  margin: 0;
-}
-
 /* CryptoDetails styles */
 
 .crypto-details-container {
@@ -213,4 +209,8 @@ a:hover {
   border: 1px solid #ddd;
   padding: 2px;
   text-align: left;
+}
+
+.icon {
+  margin-left: 11rem;
 }
