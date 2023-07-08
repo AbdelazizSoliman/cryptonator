@@ -1,21 +1,15 @@
-/* App.css */
-
 /* General styles */
 
 body {
   font-family: Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   background-color: #4167d1;
-}
-
-.crypto-container {
-  width: 100%;
-  overflow: hidden;
-  margin-left: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-top: 0;
 }
 
@@ -28,6 +22,7 @@ ul {
 li {
   list-style: none;
 }
+
 .filter {
   margin: 1rem;
 }
@@ -43,23 +38,28 @@ a:hover {
 
 /* Homepage styles */
 
-.crypto-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  max-width: max-content;
+.crypto-container {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .crypto-item {
   width: 200px;
-  max-height: 200px;
+  min-height: 200px;
   float: left;
   box-sizing: border-box;
-  padding: 0.25rem;
+  padding: 0.5rem;
   text-align: center;
   border: 1px solid #ccc;
   background-color: rgba(131, 124, 235, 0.562);
+  margin: 0.5rem;
   display: grid;
+  justify-content: center;
 }
 
 .background-1 {
@@ -75,20 +75,23 @@ a:hover {
 }
 
 .crypto-img {
-  width: 70%;
-  height: 70%;
-  object-fit: contain;
-  margin-left: 30px;
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
 }
 
 .icon {
-  margin-left: 10rem;
+  margin: 0;
 }
+
+/* CryptoDetails styles */
 
 .crypto-details-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .back-link {
@@ -99,8 +102,65 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .crypto-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .crypto-item {
+    max-width: 100%;
+    margin: 1rem 0;
+  }
+
+  .details-container {
+    width: 80%;
+  }
+
+  .crypto-details {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .crypto-symbol,
+  .crypto-rank,
+  .crypto-price,
+  .crypto-price-btc,
+  .crypto-volume,
+  .crypto-market-cap,
+  .crypto-available-supply,
+  .crypto-total-supply,
+  .crypto-price-change-1h,
+  .crypto-price-change-24h,
+  .crypto-price-change-7d {
+    font-size: 0.7rem;
+  }
+
+  .crypto-img {
+    width: 80%;
+    max-height: 120px;
+    margin: 0 auto;
+  }
+
+  .icon {
+    margin: 0.5rem 0;
+  }
+
+  .details-container {
+    width: 50%;
+  }
 }
 
 .crypto-details {
@@ -109,11 +169,13 @@ a:hover {
   border: 1px solid #ccc;
   padding: 1rem;
   background-color: #69b2d4;
+  border-collapse: collapse;
+  width: 100%;
 }
 
 .cryptodetailes-img {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   margin-right: 1rem;
 }
 
@@ -145,11 +207,6 @@ a:hover {
 .error,
 .not-found {
   margin: 2rem 0;
-}
-
-.crypto-details {
-  border-collapse: collapse;
-  width: 100%;
 }
 
 .crypto-details td {
