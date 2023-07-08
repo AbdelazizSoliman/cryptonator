@@ -7,7 +7,9 @@ exports[`HomePage component matches snapshot 1`] = `
   <h2>
     List of available cryptocurrencies:
   </h2>
-  <div>
+  <div
+    className="filter"
+  >
     <span>
       Filter by name:
     </span>
