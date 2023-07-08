@@ -2,12 +2,22 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchCryptoList = createAsyncThunk('crypto/fetchCryptoList', async () => {
-  const response = await axios.get('http://api.coinlayer.com/list', {
-    params: {
-      access_key: '0df39f4329d575cc6b8614c2cc460032',
-    },
-  });
-  const cryptoArray = Object.values(response.data.crypto);
+  const response = await axios.get('https://api.coinstats.app/public/v1/coins');
+  const cryptoArray = response.data.coins.map((coin) => ({
+    icon: coin.icon,
+    name_full: coin.name,
+    symbol: coin.symbol,
+    rank: coin.rank,
+    price: coin.price,
+    price_btc: coin.priceBtc,
+    volume: coin.volume,
+    market_cap: coin.marketCap,
+    available_supply: coin.availableSupply,
+    total_supply: coin.totalSupply,
+    price_change_percentage_1h: coin.priceChange1h,
+    price_change_percentage_1d: coin.priceChange1d,
+    price_change_percentage_1w: coin.priceChange1w,
+  }));
   return cryptoArray;
 });
 

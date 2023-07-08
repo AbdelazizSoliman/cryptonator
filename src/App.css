@@ -1,171 +1,191 @@
-/* .App {
-  text-align: center;
+/* App.css */
+
+/* General styles */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #f7f7f7;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h2 {
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #07c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Homepage styles */
+
+.homepage-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.crypto-card {
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.crypto-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.crypto-card h3 {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.crypto-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.crypto-card span {
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.crypto-card .crypto-details-link {
+  margin-top: 10px;
+}
+
+/* CryptoDetails page styles */
+
+.crypto-details-container {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.crypto-details-header {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.crypto-details-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-right: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.crypto-details-info {
+  flex-grow: 1;
 }
 
-.crypto-container {
-  width: 100%;
-  overflow: hidden;
-  margin-left: 2rem;
+.crypto-details-info h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
-.crypto-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  max-width: max-content;
+.crypto-details-info span {
+  font-size: 1.2rem;
+  margin-right: 20px;
 }
 
-.crypto-item {
-  width: 25%;
-  min-height: 400px;
-  float: left;
-  box-sizing: border-box;
-  padding: 0.25rem;
-  margin: 0.5rem;
-  text-align: center;
-  border: 1px solid #ccc;
-  background-color: rgba(131, 124, 235, 0.562);
-  display: grid;
+.crypto-details-info .crypto-details-symbol {
+  font-weight: bold;
 }
 
-.crypo-img {
-  width: 100%;
-  height: 100%;
+.crypto-details-info .crypto-details-price {
+  color: #07c;
 }
 
-@media only screen and (min-width: 768px) {
-  .crypto-item {
-    width: 30%;
-  }
+.crypto-details-info .crypto-details-price-btc {
+  color: #07c;
 }
 
-@media only screen and (min-width: 1024px) {
-  .crypto-item {
-    width: 22%;
-  }
+.crypto-details-info .crypto-details-rank {
+  font-size: 1rem;
+  color: #888;
 }
 
-@media only screen and (min-width: 1280px) {
-  .crypto-item {
-    width: 18%;
-  }
+.crypto-details-info .crypto-details-volume {
+  font-size: 1rem;
+  color: #888;
 }
 
-body {
-  background-color: rgb(55, 95, 155);
+.crypto-details-info .crypto-details-market-cap {
+  font-size: 1rem;
+  color: #888;
 }
 
-span {
-  margin-left: 16rem;
-} */
-
-/* apply the styling only on mobile devices */
-@media only screen and (max-width: 767px) {
-  .crypto-container {
-    margin-left: 0; /* remove margin on left */
-  }
-
-  .crypto-item {
-    width: 100%; /* set width to 100% to make it full width */
-    min-height: 300px; /* reduce the height for smaller screens */
-  }
-
-  span {
-    margin-left: 0; /* remove margin on left */
-    display: block; /* make it a block element to take full width */
-    text-align: center; /* center the text */
-  }
+.crypto-details-info .crypto-details-available-supply {
+  font-size: 1rem;
+  color: #888;
 }
 
-/* apply the styling on all devices */
-.crypto-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  max-width: max-content;
+.crypto-details-info .crypto-details-total-supply {
+  font-size: 1rem;
+  color: #888;
 }
 
-.crypto-item {
-  width: 25%;
-  min-height: 400px;
-  float: left;
-  box-sizing: border-box;
-  padding: 0.25rem;
-
-  /* margin: 0.5rem; */
-  text-align: center;
-  border: 1px solid #ccc;
-
-  /* background-color: rgba(131, 124, 235, 0.562); */
-  display: grid;
+.crypto-details-info .crypto-details-price-change-1h {
+  font-size: 1rem;
+  color: #888;
 }
 
-.background-1 {
-  background-color: #6985b9;
+.crypto-details-info .crypto-details-price-change-24h {
+  font-size: 1rem;
+  color: #888;
 }
 
-.background-2 {
-  background-color: #3f63a6;
+.crypto-details-info .crypto-details-price-change-7d {
+  font-size: 1rem;
+  color: #888;
 }
 
-.crypo-img {
-  width: 100%;
-  height: 100%;
+.crypto-details-description h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
-@media only screen and (min-width: 768px) {
-  .crypto-item {
-    width: 30%;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .crypto-item {
-    width: 22%;
-  }
-}
-
-@media only screen and (min-width: 1280px) {
-  .crypto-item {
-    width: 18%;
-  }
-}
-
-body {
-  background-color: rgb(55, 95, 155);
+.crypto-details-description p {
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
