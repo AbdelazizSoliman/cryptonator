@@ -44,31 +44,10 @@ const HomePage = () => {
       <ul className="crypto-list">
         {filteredCryptoList.map((crypto, index) => (
           <li className={`crypto-item ${index % 2 === 0 ? 'background-1' : 'background-2'}`} key={crypto.symbol}>
-            <Link to={`/crypto/${crypto.symbol}`}><IoArrowForwardCircleOutline /></Link>
-            <img src={crypto.icon} className="crypo-img" alt={`${crypto.name_full} icon`} />
+            <Link to={`/crypto/${crypto.symbol}`}><span className="icon"><IoArrowForwardCircleOutline /></span></Link>
+            <img src={crypto.icon} className="crypto-img" alt={`${crypto.name_full} icon`} />
             <div className="crypto-info">
               <span className="crypto-name">{crypto.name_full}</span>
-              <span className="crypto-symbol">{crypto.symbol}</span>
-              <span className="crypto-rank">
-                Rank:
-                {crypto.rank}
-              </span>
-              <span className="crypto-price">
-                Price:
-                {crypto.price}
-              </span>
-              <span className="crypto-price-btc">
-                Price in BTC:
-                {crypto.price_btc}
-              </span>
-              <span className="crypto-volume">
-                Volume:
-                {crypto.volume}
-              </span>
-              <span className="crypto-market-cap">
-                Market Cap:
-                {crypto.market_cap}
-              </span>
             </div>
           </li>
         ))}
